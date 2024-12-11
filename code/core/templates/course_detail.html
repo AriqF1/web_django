@@ -1,0 +1,51 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles2.css' %}">
+{% block content %}
+  <div class="container">
+    <h1 class="course-title">{{ course.name }}</h1>
+    <div class="course-details">
+      <img src="{{ course.image.url }}" alt="{{ course.name }}" class="course-image">
+      <p class="course-description">{{ course.description }}</p>
+      <p class="course-price">Rp {{ course.price }}</p>
+      <p class="course-teacher">Pengajar: {{ course.teacher.username }}</p>
+    </div>
+
+    <h2>Konten Kursus</h2>
+    <div class="course-content-list">
+      {% for content in course_contents %}
+        <div class="course-content-item">
+          <h3>{{ content.name }}</h3>
+          <p>{{ content.description }}</p>
+          {% if content.video_url %}
+            <a href="{{ content.video_url }}" target="_blank">Lihat Video</a>
+          {% endif %}
+          {% if content.file_attachment %}
+            <a href="{{ content.file_attachment.url }}" download>Unduh File</a>
+          {% endif %}
+        </div>
+      {% empty %}
+        <p class="no-content">Tidak ada konten untuk kursus ini.</p>
+      {% endfor %}
+    </div>
+
+    <h2>Komentar</h2>
+    <div class="comments">
+      {% for comment in comments %}
+        <div class="comment">
+          <p><strong>{{ comment.member_id.user_id.username }}</strong>: {{ comment.comment }}</p>
+          <p><small>{{ comment.created_at }}</small></p>
+        </div>
+      {% empty %}
+        <p class="no-comment">Belum ada komentar untuk kursus ini.</p>
+      {% endfor %}
+    </div>
+
+    <h3>Tambah Komentar</h3>
+    <form method="POST">
+      {% csrf_token %}
+      <textarea name="comment" rows="4" placeholder="Tulis komentar"></textarea>
+      <button type="submit">Kirim Komentar</button>
+    </form>
+  </div>
+{% endblock %}

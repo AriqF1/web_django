@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Kursus</title>
+    {% load static %} <!-- Memuat tag static -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Daftar Kursus</h1>
+
+        <div class="course-list">
+            {% for course in courses %}
+                <div class="course-card">
+                    <img src="{{ course.image.url }}" alt="{{ course.name }}" class="course-image">
+
+
+                    <div class="course-details">
+                        <h3 class="course-name">{{ course.name }}</h3>
+                        <p class="course-description">{{ course.description }}</p>
+                        <p class="course-price">Rp {{ course.price }}</p>
+                        <a href="{% url 'course_detail' course.id %}" class="btn-detail">Lihat Detail</a>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="no-course">Tidak ada kursus yang tersedia.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

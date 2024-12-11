@@ -1,0 +1,248 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+/* Title */
+.course-title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Course Details */
+.course-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.course-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    width: 350px; /* Lebar gambar yang lebih besar untuk laptop */
+    object-fit: cover;
+}
+
+.course-description {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+.course-price {
+    font-size: 1.5em;
+    color: #27ae60;
+    margin-bottom: 10px;
+}
+
+.course-teacher {
+    font-size: 1.1em;
+    color: #3498db;
+}
+
+/* Course Content */
+.course-content-list {
+    margin-top: 30px;
+}
+
+.course-content-item {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.course-content-item h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.course-content-item p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.course-content-item a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.course-content-item a:hover {
+    color: #2980b9;
+}
+
+/* Comments Section */
+.comments {
+    margin-top: 30px;
+}
+
+.comment {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comment p {
+    color: #333;
+}
+
+.comment strong {
+    color: #3498db;
+}
+
+.comment small {
+    color: #888;
+    font-size: 0.9em;
+}
+
+/* Empty State */
+.no-content, .no-comment {
+    text-align: center;
+    font-size: 1.2em;
+    color: #e74c3c;
+    margin-top: 20px;
+}
+
+/* Add Comment Form */
+form {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;  /* Padding lebih besar untuk kenyamanan */
+    font-size: 1.1em;  /* Ukuran font yang lebih besar */
+    margin-bottom: 15px;  /* Jarak lebih besar antar elemen */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+button {
+    padding: 12px 25px;  /* Tombol lebih besar */
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Design for Laptop */
+@media (max-width: 1200px) {
+    .course-details {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .course-image {
+        width: 80%;  /* Lebar gambar lebih kecil di layar lebih kecil */
+    }
+
+    .course-description, .course-price, .course-teacher {
+        margin-top: 15px;
+        font-size: 1.2em;
+    }
+
+    .course-card {
+        width: 45%; /* Gambar kursus menjadi 45% dari lebar layar */
+    }
+}
+
+/* Responsive Design for Smaller Laptop */
+@media (max-width: 1024px) {
+    .course-card {
+        width: 48%;
+    }
+
+    .course-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .course-image {
+        width: 100%; /* Lebar gambar diubah menjadi 100% pada layar lebih kecil */
+    }
+
+    .course-name {
+        font-size: 1.8em;
+    }
+
+    .course-description, .course-price {
+        font-size: 1.1em;
+    }
+
+    .course-content-item {
+        padding: 15px;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .course-card {
+        width: 100%; /* Menampilkan kartu kursus dengan lebar penuh */
+        margin-bottom: 30px;
+    }
+
+    .course-image {
+        width: 100%; /* Gambar menyesuaikan lebar layar */
+    }
+
+    .course-details {
+        padding: 15px;
+    }
+
+    .course-name {
+        font-size: 1.5em;
+    }
+
+    .course-description {
+        font-size: 1em;
+    }
+
+    .course-price, .course-teacher {
+        font-size: 1.1em;
+    }
+
+    textarea, button {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
